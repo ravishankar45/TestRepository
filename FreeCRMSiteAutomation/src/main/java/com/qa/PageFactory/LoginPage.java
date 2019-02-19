@@ -3,6 +3,8 @@ package com.qa.PageFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -47,12 +49,17 @@ public class LoginPage extends Base_Class
 		usrname.sendKeys(UName);
 		passwd.sendKeys(Pass);
 		WebDriverWait wait1 = new WebDriverWait(driver, 10);
-		LoginBtn=wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".logo_text")));
+		Actions action= new Actions(driver);
+		
+		
+		//LoginBtn=wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".logo_text")|(".hgh") ));
+		LoginBtn=wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[@class='....'] | //h3[@class='... ']")));
 		/*boolean element=wait1.until(ExpectedConditions.or(
 			    ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.something")),
 			    ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.anything"))));*/
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("argument[0].click();",LoginBtn);
+		
 		
 		return new HomePage();
 		

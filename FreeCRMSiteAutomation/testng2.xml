@@ -3,7 +3,13 @@
 <suite name="Suite1" verbose="1" >
   <test name="AnnotationTests" >
     <classes>
-       <class name="com.qa.TestCases.Testingannotations" />
+       <class name="com.qa.TestCases.Testingannotations" >
+          <methods>
+          <include name="Test1_suite"></include>
+         
+          </methods>
+        </class>
     </classes>
+    
   </test>
 </suite>
