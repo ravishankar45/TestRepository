@@ -16,7 +16,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Base_Class
 {
-	public static WebDriver driver;
+	public static WebDriver driver=null;
 
 	public static Properties prop;
 	
@@ -40,23 +40,42 @@ public class Base_Class
 	}
 public static void Intilization()
 {
-	//String BrowserName=prop.getProperty("Browser");
-	//if (BrowserName.equalsIgnoreCase("chrome"))
+	if(driver==null)
+	{
 	if(prop.getProperty("Browser").equals("Chrome"))
 			{
 			System.setProperty("webdriver.chrome.driver","C:\\Users\\ravis5\\Desktop\\chromedriver.exe");
 			driver=new ChromeDriver();
+			}
+			else if(prop.getProperty("Browser").equals("Chrome"))
+				{
+				System.setProperty("webdriver.chrome.driver","C:\\Users\\ravis5\\Desktop\\chromedriver.exe");
+				driver=new ChromeDriver();
+				
+				}
 		
 			}
-	//else if(BrowserName.equalsIgnoreCase("Firefox"))
-	
-	
 	driver.manage().window().maximize();
 	driver.manage().deleteAllCookies();
 	driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	driver.get(prop.getProperty("URL"));
-}
+	//else if(BrowserName.equalsIgnoreCase("Firefox"))
+	}
+	
+	public void closeDriver()
+	{
+		driver.close();
+		driver=null;
+		
 
+	}
+	public void quitDriver()
+	{
+		driver.quit();
+		driver=null;
+		
+
+	}
 
 }

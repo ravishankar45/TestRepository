@@ -50,7 +50,7 @@ public class LoginTest extends Base_Class
 		Homepage=loginPage.Login(prop.getProperty(UserName),prop.getProperty(Password));
 	}
 	
-	@DataProvider
+	@DataProvider(parallel=true)
 	public Object[][] PassData()
 	{
 		

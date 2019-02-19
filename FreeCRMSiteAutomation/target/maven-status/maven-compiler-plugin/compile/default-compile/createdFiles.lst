@@ -1,0 +1,6 @@
+com\qa\util\ReadExcelFile.class
+com\qa\Base\Base_Class.class
+com\qa\PageFactory\LoginPage.class
+com\qa\util\TestUtil.class
+com\qa\PageFactory\HomePage.class
+com\qa\PageFactory\DealsPage.class
